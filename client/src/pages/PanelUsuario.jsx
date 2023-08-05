@@ -83,7 +83,7 @@ function PanelUsuario() {
             <div className="col-md-6">
               <h3 className="mt-5 mb-4">Panel de Administrador:</h3>
 
-              <Link type="button" className="btn btn-outline-dark w-100">
+              <Link to="/admin/productos" type="button" className="btn btn-outline-dark w-100">
                 Administrar Productos
               </Link>
               <br />

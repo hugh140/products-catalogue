@@ -7,6 +7,7 @@ import Producto from "./pages/Producto";
 import ListaDeseos from "./pages/ListaDeseos";
 import PanelUsuario from "./pages/PanelUsuario";
 import ComprobarRegistro from "./pages/ComprobarRegistro";
+import AdminProductos from "./pages/AdminProductos";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/deseados" element={<ListaDeseos />} />
         <Route path="/cuenta" element={<PanelUsuario />} />
         <Route path="/comprobar/:nombre" element={<ComprobarRegistro />} />
+        <Route path="/admin/productos" element={<AdminProductos />} />
       </Routes>
     </BrowserRouter>
   );

@@ -25,7 +25,7 @@ function ListaDeseos() {
 
   return (
     <>
-      <NavBar lista={document.cookie} />
+      <NavBar lista={Boolean(document.cookie)} />
 
       <main
         className="container"

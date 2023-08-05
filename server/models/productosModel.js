@@ -174,7 +174,10 @@ class ProductoModel {
 
   static delete(res, id, token) {
     const sqlGetImgUrl = `SELECT imgProducto FROM productos WHERE idProducto = ?`;
-    const sqlDelete = `DELETE FROM productos WHERE idProducto = ?`;
+    
+    const sqlDelete = `DELETE FROM listadeseados WHERE idProducto = ?; 
+    DELETE FROM comentarios WHERE idProducto = ?; 
+    DELETE FROM productos WHERE idProducto = ?;`;
 
     jwt.verify(token, SECRET, (tokenError, decoded) => {
       if (tokenError) throw new Error(tokenError);
@@ -184,13 +187,13 @@ class ProductoModel {
       connection.execute(sqlGetImgUrl, [id], (error, results) => {
         try {
           if (error) throw new Error(error);
-          else deleteImages(results[0].imgProducto);
+          deleteImages(results[0].imgProducto);
         } catch (e) {
-          errorMessage(res, e, 400);
+          errorMessage(res, e, 502);
         }
       });
 
-      connection.execute(sqlDelete, [id], (error) => {
+      connection.query(sqlDelete, [id, id, id], (error) => {
         try {
           if (error) throw new Error(error);
           else
