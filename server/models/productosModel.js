@@ -43,7 +43,7 @@ class ProductoModel {
 
   static getProductos(res) {
     const sql =
-      "SELECT idProducto, nombreProducto, imgProducto, descrProducto, precioProducto FROM productos";
+      "SELECT idProducto, nombreProducto, imgProducto, descrProducto, precioProducto FROM productos ORDER BY idProducto DESC";
 
     connection.query(sql, (error, results) => {
       try {
@@ -174,7 +174,7 @@ class ProductoModel {
 
   static delete(res, id, token) {
     const sqlGetImgUrl = `SELECT imgProducto FROM productos WHERE idProducto = ?`;
-    
+
     const sqlDelete = `DELETE FROM listadeseados WHERE idProducto = ?; 
     DELETE FROM comentarios WHERE idProducto = ?; 
     DELETE FROM productos WHERE idProducto = ?;`;

@@ -15,7 +15,7 @@ function AdminProductos() {
       <main className="container" style={{ marginTop: "7rem" }}>
         <h1 className="display-4 text-center">Lista de Productos</h1>
 
-        <Link className="btn btn-success">
+        <Link to="/admin/productos/subir" className="btn btn-success">
           <i className="fa-solid fa-plus me-2"></i>Agregar producto
         </Link>
 

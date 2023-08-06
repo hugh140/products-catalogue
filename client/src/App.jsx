@@ -8,6 +8,7 @@ import ListaDeseos from "./pages/ListaDeseos";
 import PanelUsuario from "./pages/PanelUsuario";
 import ComprobarRegistro from "./pages/ComprobarRegistro";
 import AdminProductos from "./pages/AdminProductos";
+import SubirProductos from "./pages/SubirProductos";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/cuenta" element={<PanelUsuario />} />
         <Route path="/comprobar/:nombre" element={<ComprobarRegistro />} />
         <Route path="/admin/productos" element={<AdminProductos />} />
+        <Route path="/admin/productos/subir" element={<SubirProductos />} />
       </Routes>
     </BrowserRouter>
   );
