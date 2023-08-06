@@ -57,13 +57,15 @@ function ModalEditarComment({ comentario, idProducto }) {
             </div>
             <form onSubmit={editarComentario}>
               <div className="modal-body">
-                <input
+                <textarea
+                  rows={5}
                   className="form-control mb-3"
                   type="text"
                   placeholder="Escribe un comentario"
                   aria-label="default input example"
                   name="texto"
                   defaultValue={comentario.textoComentario}
+                  style={{ resize: "none" }}
                 />
                 {pedidoError}
               </div>

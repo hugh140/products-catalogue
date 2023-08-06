@@ -9,6 +9,7 @@ import PanelUsuario from "./pages/PanelUsuario";
 import ComprobarRegistro from "./pages/ComprobarRegistro";
 import AdminProductos from "./pages/AdminProductos";
 import SubirProductos from "./pages/SubirProductos";
+import EditarProductos from "./pages/EditarProducto";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/comprobar/:nombre" element={<ComprobarRegistro />} />
         <Route path="/admin/productos" element={<AdminProductos />} />
         <Route path="/admin/productos/subir" element={<SubirProductos />} />
+        <Route path="/admin/productos/editar/:id" element={<EditarProductos />} />
       </Routes>
     </BrowserRouter>
   );

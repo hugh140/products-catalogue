@@ -16,10 +16,10 @@ function Landing() {
         style={{
           height: "100vh",
           background:
-            "linear-gradient(180deg, rgba(139,139,139,1) 0%, rgba(102,102,102,1) 0%, rgba(255,255,255,1) 100%)",
+            "linear-gradient(180deg, rgba(139,139,139,1) 0%, rgba(0,15,43,1) 0%, rgba(255,255,255,1) 100%)",
         }}
       >
-        <div>
+        <div style={{color: "#001439"}}>
           <h1 className="text-center display-1 mb-3">Cellphora</h1>
           <h2 className="text-center">Tu tienda de smarthphones preferida.</h2>
         </div>

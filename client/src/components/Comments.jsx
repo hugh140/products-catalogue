@@ -51,7 +51,8 @@ function Comments({ producto, id }) {
       </h3>
 
       <form className="my-4" onSubmit={comentar}>
-        <input
+        <textarea
+          rows={3}
           className="form-control"
           type="text"
           placeholder="Escribe un comentario"
@@ -59,45 +60,47 @@ function Comments({ producto, id }) {
           onFocus={onFocus}
           onBlur={onBlur}
           name="texto"
+          style={{ resize: "none" }}
         />
         {submitBtn}
         {passError}
       </form>
 
       {producto?.comentarios.map((comentario, index) => (
-        <div key={index} className="position-relative">
+        <div key={index}>
           <hr />
-          {getUserId() === comentario.idUsuario ? (
-            <>
-              <button
-                className="position-absolute top-0 end-0 btn btn-warning"
-                data-bs-toggle="modal"
-                data-bs-target={`#editModal${comentario.idComentario}`}
-              >
-                <i
-                  className="fa-solid fa-pen-to-square p-2"
-                  style={{ color: "white" }}
-                ></i>
-              </button>
-              <button
-                className="position-absolute bottom-0 end-0 btn btn-danger"
-                data-bs-toggle="modal"
-                data-bs-target={`#eliminarModal${comentario.idComentario}`}
-              >
-                <i
-                  className="fa-solid fa-trash-can p-2"
-                  style={{ color: "#ffffff" }}
-                ></i>
-              </button>
-              <ModalEditarComment
-                comentario={comentario}
-                idProducto={id}
-              />
-              <ModalEliminarComment idComentario={comentario.idComentario} />
-            </>
-          ) : null}
-          <h4>{comentario.nombreUsuario}</h4>
-          <p>{comentario.textoComentario}</p>
+          <div className="d-flex">
+            <div style={{ overflow: "hidden" }} className="w-100">
+              <h4>{comentario.nombreUsuario}</h4>
+              <p>{comentario.textoComentario}</p>
+            </div>
+            {getUserId() === comentario.idUsuario ? (
+              <div className="d-flex flex-column mb-3">
+                <button
+                  className="btn btn-warning mb-2"
+                  data-bs-toggle="modal"
+                  data-bs-target={`#editModal${comentario.idComentario}`}
+                >
+                  <i
+                    className="fa-solid fa-pen-to-square p-2"
+                    style={{ color: "white" }}
+                  ></i>
+                </button>
+                <button
+                  className="btn btn-danger"
+                  data-bs-toggle="modal"
+                  data-bs-target={`#eliminarModal${comentario.idComentario}`}
+                >
+                  <i
+                    className="fa-solid fa-trash-can p-2"
+                    style={{ color: "#ffffff" }}
+                  ></i>
+                </button>
+                <ModalEditarComment comentario={comentario} idProducto={id} />
+                <ModalEliminarComment idComentario={comentario.idComentario} />
+              </div>
+            ) : null}
+          </div>
           <hr />
         </div>
       ))}

@@ -5,11 +5,15 @@ import { useState } from "react";
 
 import fileBinaries from "../scripts/fileBinaries";
 import ErrorMessage from "../components/ErrorAlert";
+import useProducto from "../hooks/productoAdmin";
+import { useParams } from "react-router-dom";
 
-function SubirProductos() {
-  const [imageZone, setImageZone] = useState(null);
+function EditarProductos() {
+  const [imageZone, setImageZone] = useState();
   const [error, setError] = useState(null);
   const [imgHex, setImgHex] = useState(null);
+  const { id } = useParams();
+  const producto = useProducto(id, (hex) => setImgHex(hex));
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop: (files) => {
@@ -21,14 +25,7 @@ function SubirProductos() {
       );
       fileBinaries.getHex(files[0], (result) => setImgHex(result));
       fileBinaries.getUrl(files[0], (e) => {
-        setImageZone(
-          <img
-            src={e.target.result}
-            alt=""
-            className="img-fluid mh-100"
-            style={{ opacity: 0.4 }}
-          />
-        );
+        setImageZone(e.target.result);
         setError(null);
       });
     },
@@ -57,6 +54,19 @@ function SubirProductos() {
       imagen: imgHex,
     };
 
+    if (
+      json.nombre == producto.nombreProducto &&
+      json.descripcion == producto.descrProducto &&
+      json.especificacion == producto.especProducto &&
+      json.precio == producto.precioProducto &&
+      imgHex == producto.imgHex
+    )
+      throw setError(
+        <ErrorMessage type="danger">
+          Al menos un campo debe ser diferente para actualizar el producto.
+        </ErrorMessage>
+      );
+
     for (const value of Object.values(json))
       if (!value)
         throw setError(
@@ -65,8 +75,8 @@ function SubirProductos() {
           </ErrorMessage>
         );
 
-    fetch("http://localhost:3000/productos", {
-      method: "POST",
+    fetch(`http://localhost:3000/productos?id=${producto.idProducto}`, {
+      method: "PUT",
       credentials: "include",
       body: JSON.stringify(json),
       headers: {
@@ -78,7 +88,7 @@ function SubirProductos() {
         if (!result.ok) throw new Error("Existen campos faltantes, revísalos.");
         setError(
           <ErrorMessage type="success">
-            Producto registrado correctamente.
+            Producto actualizado correctamente.
           </ErrorMessage>
         );
         window.location.href = "/admin/productos";
@@ -114,7 +124,12 @@ function SubirProductos() {
               }}
             >
               <input {...getInputProps()} />
-              {imageZone}
+              <img
+                src={imageZone ? imageZone : producto?.imgProducto}
+                alt=""
+                className="img-fluid mh-100"
+                style={{ opacity: 0.4 }}
+              />
 
               <div className="position-absolute p-4">
                 <i
@@ -135,11 +150,17 @@ function SubirProductos() {
               <label htmlFor="nombre" className="my-2">
                 Nombre:
               </label>
-              <input type="text" className="form-control" id="nombre" />
+              <input
+                defaultValue={producto?.nombreProducto}
+                type="text"
+                className="form-control"
+                id="nombre"
+              />
               <label htmlFor="desc" className="my-2">
                 Descripción:
               </label>
               <textarea
+                defaultValue={producto?.descrProducto}
                 className="form-control"
                 id="desc"
                 rows={3}
@@ -149,6 +170,7 @@ function SubirProductos() {
               </label>
 
               <textarea
+                defaultValue={producto?.especProducto}
                 className="form-control"
                 id="espec"
                 rows={5}
@@ -156,10 +178,16 @@ function SubirProductos() {
               <label htmlFor="precio" className="my-2">
                 Precio:
               </label>
-              <input type="number" className="form-control w-25" />
+              <input
+                defaultValue={producto?.precioProducto}
+                type="number"
+                className="form-control w-25"
+              />
               <input
                 type="submit"
-                className={`btn btn-outline-dark mt-3`}
+                className={`btn btn-outline-dark mt-3 ${
+                  !producto && "disabled"
+                }`}
                 value="Agregar"
               />
               <br />
@@ -174,4 +202,4 @@ function SubirProductos() {
   );
 }
 
-export default SubirProductos;
+export default EditarProductos;

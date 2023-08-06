@@ -5,14 +5,15 @@ function NavBar({ lista }) {
   const listaDeseados = lista && (
     <li className="nav-item">
       <Link className="nav-link" to="/deseados">
-        <i className="fa-regular fa-bookmark fs-2"></i>
+        <i className="fa-regular fa-bookmark"></i>
+        <span className=" ms-2">Lista de deseados</span>
       </Link>
     </li>
   );
 
   return (
     <nav
-      className="navbar bg-dark navbar-expand-lg bg-body-tertiary mb-5 fixed-top"
+      className="navbar bg-dark navbar-expand-lg mb-5 fixed-top"
       data-bs-theme="dark"
     >
       <div className="container-fluid">
@@ -40,7 +41,8 @@ function NavBar({ lista }) {
                   aria-current="page"
                   to="/cuenta"
                 >
-                  <i className="fa-solid fa-circle-user fa-bookmark fs-2"></i>
+                  <i className="fa-solid fa-circle-user fa-bookmark"></i>
+                  <span className=" ms-2">Cuenta</span>
                 </Link>
               ) : (
                 <Link
@@ -48,7 +50,8 @@ function NavBar({ lista }) {
                   aria-current="page"
                   to="/login"
                 >
-                  <i className="fa-solid fa-circle-user fa-bookmark fs-2"></i>
+                  <i className="fa-solid fa-circle-user fa-bookmark"></i>
+                  <span className=" ms-2">Cuenta</span>
                 </Link>
               )}
             </li>

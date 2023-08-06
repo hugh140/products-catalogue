@@ -46,12 +46,12 @@ function AdminProductos() {
                 </div>
                 <div className="flex-shrink-1">
                   <div className="d-flex flex-column mb-3">
-                    <button className="btn btn-warning mb-2">
+                    <Link to={`/admin/productos/editar/${producto.idProducto}`} className="btn btn-warning mb-2">
                       <i
                         className="fa-solid fa-pen-to-square p-2"
                         style={{ color: "white" }}
                       ></i>
-                    </button>
+                    </Link>
                     <button
                       className="btn btn-danger"
                       data-bs-toggle="modal"
