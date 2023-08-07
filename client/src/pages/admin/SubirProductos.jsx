@@ -159,7 +159,7 @@ function SubirProductos() {
               <input type="number" className="form-control w-25" />
               <input
                 type="submit"
-                className={`btn btn-outline-dark mt-3`}
+                className={`btn btn-outline-dark mt-3 mb-2`}
                 value="Agregar"
               />
               <br />

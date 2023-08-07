@@ -185,7 +185,7 @@ function EditarProductos() {
               />
               <input
                 type="submit"
-                className={`btn btn-outline-dark mt-3 ${
+                className={`btn btn-outline-dark mt-3 mb-2 ${
                   !producto && "disabled"
                 }`}
                 value="Editar"

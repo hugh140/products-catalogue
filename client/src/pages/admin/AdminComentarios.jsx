@@ -15,11 +15,11 @@ function AdminComentarios() {
 
       <main
         className="container"
-        style={{ height: "100vh", marginTop: "7rem" }}
+        style={{ minHeight: "100vh", marginTop: "7rem" }}
       >
         <h1 className="display-4 text-center">Comentarios de {nombre}</h1>
 
-        {comentarios?.map((producto) => (
+        {comentarios?.length ? (comentarios?.map((producto) => (
           <div key={producto.idProducto}>
             <div  className="w-100 border mb-5 p-3">
               <div className="d-flex align-items-center mb-3">
@@ -87,7 +87,23 @@ function AdminComentarios() {
               ))}
             </div>
           </div>
-        ))}
+        ))) : (
+          <div className="text-center d-flex align-items-center justify-content-center">
+            <div>
+              <i
+                className="fa-solid fa-circle-exclamation mb-3"
+                style={{
+                  color: "#0B67C8",
+                  fontSize: "5rem",
+                  marginTop: "5rem",
+                }}
+              ></i>
+              <h1 style={{ color: "#4B4B4B" }}>
+                No existen comentarios registrados de este usuario.
+              </h1>
+            </div>
+          </div>
+        )}
       </main>
 
       <Footer />

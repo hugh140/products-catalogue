@@ -29,7 +29,7 @@ function ListaDeseos() {
 
       <main
         className="container"
-        style={{ height: "100vh", marginTop: "7rem" }}
+        style={{ minHeight: "100vh", marginTop: "7rem" }}
       >
         <h1 className="display-4 text-center">Lista de Deseados</h1>
 
@@ -58,7 +58,7 @@ function ListaDeseos() {
                     <p>{deseado.descrProducto}</p>
                   </Link>
                 </div>
-                <div className="flex-shrink-1">
+                <div className="flex-shrink-1 ms-4">
                   <button
                     className="btn btn-danger"
                     onClick={() => eliminarDeseo(deseado.idProducto)}

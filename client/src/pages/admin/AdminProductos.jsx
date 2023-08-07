@@ -12,7 +12,7 @@ function AdminProductos() {
     <>
       <NavBar lista={Boolean(document.cookie)} />
 
-      <main className="container" style={{ marginTop: "7rem" }}>
+      <main className="container" style={{ marginTop: "7rem", minHeight: "100vh" }}>
         <h1 className="display-4 text-center">Lista de Productos</h1>
 
         <Link to="/admin/productos/subir" className="btn btn-success">
@@ -45,7 +45,7 @@ function AdminProductos() {
                   </Link>
                 </div>
                 <div className="flex-shrink-1">
-                  <div className="d-flex flex-column mb-3">
+                  <div className="d-flex flex-column mb-3 ms-4">
                     <Link to={`/admin/productos/editar/${producto.idProducto}`} className="btn btn-warning mb-2">
                       <i
                         className="fa-solid fa-pen-to-square p-2"

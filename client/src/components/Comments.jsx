@@ -75,7 +75,7 @@ function Comments({ producto, id }) {
               <p>{comentario.textoComentario}</p>
             </div>
             {getUserId() === comentario.idUsuario ? (
-              <div className="d-flex flex-column mb-3">
+              <div className="d-flex flex-column mb-3 ms-4">
                 <button
                   className="btn btn-warning mb-2"
                   data-bs-toggle="modal"

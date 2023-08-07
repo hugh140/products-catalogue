@@ -14,13 +14,13 @@ function AdminUsuarios() {
 
       <main
         className="container"
-        style={{ height: "100vh", marginTop: "7rem" }}
+        style={{ minHeight: "100vh", marginTop: "7rem" }}
       >
         <h1 className="display-4 text-center">Lista de Usuarios</h1>
 
         {usuarios?.map((usuario) => (
-          <>
-            <div key={usuario.idUsuario} className="w-100">
+          <div key={usuario.idUsuario}>
+            <div className="w-100">
               <hr />
               <div className="d-flex align-items-center mb-3">
                 <div className="ms-3 flex-grow-1 w-100">
@@ -55,7 +55,7 @@ function AdminUsuarios() {
             </div>
 
             <ModalEliminarUsuario idUsuario={usuario.idUsuario} />
-          </>
+          </div>
         ))}
       </main>
 
