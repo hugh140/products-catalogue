@@ -79,7 +79,7 @@ function Comments({ producto, id }) {
                 <button
                   className="btn btn-warning mb-2"
                   data-bs-toggle="modal"
-                  data-bs-target={`#editModal${comentario.idComentario}`}
+                  data-bs-target={`#eliminarModal${comentario.idComentario}`}
                 >
                   <i
                     className="fa-solid fa-pen-to-square p-2"

@@ -7,9 +7,11 @@ import Producto from "./pages/Producto";
 import ListaDeseos from "./pages/ListaDeseos";
 import PanelUsuario from "./pages/PanelUsuario";
 import ComprobarRegistro from "./pages/ComprobarRegistro";
-import AdminProductos from "./pages/AdminProductos";
-import SubirProductos from "./pages/SubirProductos";
-import EditarProductos from "./pages/EditarProducto";
+import AdminProductos from "./pages/admin/AdminProductos";
+import SubirProductos from "./pages/admin/SubirProductos";
+import EditarProductos from "./pages/admin/EditarProducto";
+import AdminUsuarios from "./pages/admin/AdminUsuarios";
+import AdminComentarios from "./pages/admin/AdminComentarios";
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
         <Route path="/admin/productos" element={<AdminProductos />} />
         <Route path="/admin/productos/subir" element={<SubirProductos />} />
         <Route path="/admin/productos/editar/:id" element={<EditarProductos />} />
+        <Route path="/admin/usuarios" element={<AdminUsuarios />} />
+        <Route path="/admin/usuarios/:nombre" element={<AdminComentarios />} />
       </Routes>
     </BrowserRouter>
   );

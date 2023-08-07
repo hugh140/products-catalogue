@@ -20,6 +20,22 @@ class ComentController {
     }
   }
 
+  static get(req, res) {
+    try {
+      const nombre = req.query.nombre;
+      const token = req.cookies.PFToken;
+
+      if (!nombre)
+        throw new Error("Nombre de usuario inexistente.");
+      if (!token)
+        throw new Error("No dispone del token de sesión para esta operación.");
+
+      ComentModel.get(res, nombre, token);
+    } catch (error) {
+      errorMessage(res, error, 400);
+    }
+  }
+
   static put(req, res) {
     try {
       const data = req.query;

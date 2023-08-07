@@ -1,9 +1,9 @@
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
+import NavBar from "../../components/NavBar";
+import Footer from "../../components/Footer";
 import { Link } from "react-router-dom";
 
-import useProductos from "../hooks/productos";
-import ModalEliminarProducto from "../components/modals/ModalEliminarProducto";
+import useProductos from "../../hooks/productos";
+import ModalEliminarProducto from "../../components/modals/ModalEliminarProducto";
 
 function AdminProductos() {
   const productos = useProductos();

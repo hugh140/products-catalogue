@@ -4,6 +4,8 @@ const ComentController = require("../controllers/comentController");
 
 router.post("/", ComentController.post);
 
+router.get("/", ComentController.get);
+
 router.put("/", ComentController.put);
 
 router.delete("/", ComentController.delete);

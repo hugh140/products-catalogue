@@ -1,11 +1,11 @@
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
+import NavBar from "../../components/NavBar";
+import Footer from "../../components/Footer";
 import { useDropzone } from "react-dropzone";
 import { useState } from "react";
 
-import fileBinaries from "../scripts/fileBinaries";
-import ErrorMessage from "../components/ErrorAlert";
-import useProducto from "../hooks/productoAdmin";
+import fileBinaries from "../../scripts/fileBinaries";
+import ErrorMessage from "../../components/ErrorAlert";
+import useProducto from "../../hooks/productoAdmin";
 import { useParams } from "react-router-dom";
 
 function EditarProductos() {
@@ -107,7 +107,7 @@ function EditarProductos() {
       <NavBar lista={Boolean(document.cookie)} />
 
       <main className="container mx-auto w-75" style={{ marginTop: "7rem" }}>
-        <h1 className="display-5">Agregar Producto</h1>
+        <h1 className="display-5">Editar Producto</h1>
 
         <div className="row w-100">
           <div className="col-md-6 col-sm-12">
@@ -188,7 +188,7 @@ function EditarProductos() {
                 className={`btn btn-outline-dark mt-3 ${
                   !producto && "disabled"
                 }`}
-                value="Agregar"
+                value="Editar"
               />
               <br />
               {error}

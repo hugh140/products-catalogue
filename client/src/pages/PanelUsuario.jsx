@@ -89,7 +89,7 @@ function PanelUsuario() {
               <br />
               <br />
               <Link
-                to="/deseados"
+                to="/admin/usuarios"
                 type="button"
                 className="btn btn-outline-dark w-100"
               >

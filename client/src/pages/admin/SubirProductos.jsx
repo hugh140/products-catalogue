@@ -1,10 +1,10 @@
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
+import NavBar from "../../components/NavBar";
+import Footer from "../../components/Footer";
 import { useDropzone } from "react-dropzone";
 import { useState } from "react";
 
-import fileBinaries from "../scripts/fileBinaries";
-import ErrorMessage from "../components/ErrorAlert";
+import fileBinaries from "../../scripts/fileBinaries";
+import ErrorMessage from "../../components/ErrorAlert";
 
 function SubirProductos() {
   const [imageZone, setImageZone] = useState(null);
