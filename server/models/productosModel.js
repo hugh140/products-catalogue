@@ -177,7 +177,7 @@ class ProductoModel {
 
     const sqlDelete = `DELETE FROM listadeseados WHERE idProducto = ?; 
     DELETE FROM comentarios WHERE idProducto = ?; 
-    DELETE FROM productos WHERE idProducto = ?;`;
+    DELETE FROM productos WHERE idProducto = ?`;
 
     jwt.verify(token, SECRET, (tokenError, decoded) => {
       if (tokenError) throw new Error(tokenError);

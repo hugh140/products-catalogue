@@ -22,6 +22,7 @@ function ModalPedido({ producto }) {
         setPedidoError(
           <i className="fa-solid fa-check h3" style={{ color: "#00C100" }}></i>
         );
+        window.location.reload()
       })
       .catch(() => {
         setPedidoError(

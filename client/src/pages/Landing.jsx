@@ -19,9 +19,16 @@ function Landing() {
             "linear-gradient(180deg, rgba(139,139,139,1) 0%, rgba(0,15,43,1) 0%, rgba(255,255,255,1) 100%)",
         }}
       >
-        <div style={{color: "#001439"}}>
-          <h1 className="text-center display-1 mb-3">Cellphora</h1>
-          <h2 className="text-center">Tu tienda de smarthphones preferida.</h2>
+        <div style={{ color: "white" }}>
+          <h1
+            className="text-center display-1 mb-3"
+            style={{ textShadow: "black 1px 0 10px" }}
+          >
+            Cellphora
+          </h1>
+          <h2 className="text-center" style={{ textShadow: "black 1px 0 5px" }}>
+            Tu tienda de smarthphones preferida.
+          </h2>
         </div>
       </div>
 

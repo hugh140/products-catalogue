@@ -1,4 +1,4 @@
-const { writeFileSync, readFile, unlinkSync, readdir } = require("fs");
+const { writeFileSync, readFile, unlink, unlinkSync, readdir } = require("fs");
 const connection = require("../helpers/db/dbConexion");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -52,8 +52,17 @@ class UsuarioModel {
             html: codeModel(code),
           })
           .then(() => {
-            setTimeout(() => unlinkSync(dir), 1000 * 60 * 2);
-
+            setTimeout(
+              () =>
+                unlink(dir, (error) => {
+                  try {
+                    if (error) throw new Error(error);
+                  } catch (error) {
+                    console.error(error);
+                  }
+                }),
+              1000 * 60 * 2
+            );
             res.json({
               message: "El correo se ha enviado correctamente.",
               ok: true,
@@ -70,7 +79,9 @@ class UsuarioModel {
     readFile(dir, "utf8", (fsError, dsData) => {
       try {
         if (fsError)
-          throw new Error("El código o identificador ingresado es incorrecto, o ya expiró.");
+          throw new Error(
+            "El código o identificador ingresado es incorrecto, o ya expiró."
+          );
         const usuario = JSON.parse(dsData);
         readdir(emailPinsDir, (error, files) => {
           const filterFiles = files.filter(

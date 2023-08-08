@@ -21,7 +21,7 @@ function AdminComentarios() {
 
         {comentarios?.length ? (comentarios?.map((producto) => (
           <div key={producto.idProducto}>
-            <div  className="w-100 border mb-5 p-3">
+            <div  className="w-100 border mb-3 rounded p-3">
               <div className="d-flex align-items-center mb-3">
                 <div className="flex-fill">
                   <Link to={`/producto/${producto.idProducto}`}>
