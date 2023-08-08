@@ -16,7 +16,8 @@ function Landing() {
         style={{
           height: "100vh",
           background:
-            "linear-gradient(180deg, rgba(139,139,139,1) 0%, rgba(0,15,43,1) 0%, rgba(255,255,255,1) 100%)",
+            "linear-gradient(180deg, rgba(0,36,103,0.6979166666666667) 0%, rgba(255,255,255,1) 100%), url('https://fscl01.fonpit.de/userfiles/7687254/image/MIUI_Super_Wallpapers-w1400h1400.jpg')",
+          backgroundSize: "cover",
         }}
       >
         <div style={{ color: "white" }}>

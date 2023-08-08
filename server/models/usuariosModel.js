@@ -87,7 +87,11 @@ class UsuarioModel {
           const filterFiles = files.filter(
             (file) => file.split("-")[0] === data.nombre
           );
-          filterFiles.forEach((file) => unlinkSync(emailPinsDir + filterFiles));
+          filterFiles.forEach((file) =>
+            unlink(emailPinsDir + file, (error) => {
+              if (error) throw new Error(error);
+            })
+          );
           registrar(usuario);
         });
       } catch (error) {
@@ -313,7 +317,9 @@ class UsuarioModel {
   }
 
   static delete(res, id, token) {
-    const sql = "DELETE FROM usuarios WHERE idUsuario = ?";
+    const sql = `DELETE FROM listadeseados WHERE idUsuario = ?; 
+    DELETE FROM comentarios WHERE idUsuario = ?; 
+    DELETE FROM usuarios WHERE idUsuario = ?`;
 
     jwt.verify(token, SECRET, (tokenError, decoded) => {
       if (tokenError) throw new Error(tokenError);
@@ -322,7 +328,7 @@ class UsuarioModel {
       if (decoded.usuario.id == id)
         throw new Error("No puedes eliminar tu mismo usuario.");
 
-      connection.execute(sql, [id], (error) => {
+      connection.query(sql, [id, id, id], (error) => {
         try {
           if (error) throw new Error(error);
           res.json({

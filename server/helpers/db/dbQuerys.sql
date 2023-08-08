@@ -37,6 +37,8 @@ UPDATE usuarios SET nombreUsuario = ?, passUsuario = ?, permisoUsuario = ? WHERE
 
 UPDATE usuarios SET nombreUsuario = ? WHERE idUsuario = ?
 
+DELETE FROM listadeseados WHERE idUsuario = ?; 
+DELETE FROM comentarios WHERE idUsuario = ?;
 DELETE FROM usuarios WHERE idUsuario = ?
 
 

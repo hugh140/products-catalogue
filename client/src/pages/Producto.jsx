@@ -11,6 +11,8 @@ function Producto() {
   const { idProducto } = useParams();
   const producto = useProducto(idProducto);
 
+  console.log(producto)
+
   function guardarDeseado() {
     if (!producto?.guardado)
       fetch(`http://localhost:3000/lista?idProducto=${idProducto}`, {
@@ -88,7 +90,7 @@ function Producto() {
         </div>
 
         <h3 className="mt-2">Especificaciones</h3>
-        <p className="mb-5">{producto?.especProducto}</p>
+        <p className="mb-5" style={{whiteSpace: "pre-wrap"}}>{producto?.especProducto}</p>
 
         <Comments producto={producto} id={Number(idProducto)} />
       </main>

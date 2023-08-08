@@ -31,7 +31,7 @@ function AdminUsuarios() {
                   <div className="d-flex flex-column mb-3">
                     <Link
                       to={`/admin/usuarios/${usuario.nombreUsuario}`}
-                      className="btn btn-info mb-2"
+                      className="btn btn-primary mb-2"
                     >
                       <i
                         className="fa-regular fa-comment p-2"
